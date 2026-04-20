@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', 'Noto Sans Thai', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth page transitions */
+.page-enter {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.font-signature {
+  font-family: 'Dancing Script', cursive;
+}
+
+@media print {
+  @page {
+    size: A5 portrait;
+    margin: 5mm;
+  }
+  body {
+    background-color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  aside, nav, .sidebar {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  /* Hide everything except the print voucher */
+  .print-voucher-container {
+    position: fixed !important;
+    inset: 0 !important;
+    z-index: 99999 !important;
+    display: block !important;
+    background: white !important;
+    overflow: visible !important;
+  }
+}
+
